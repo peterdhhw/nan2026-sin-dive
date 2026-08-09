@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>SIN DIVE — 팀원 롤 기술서</title>
+    <link rel="stylesheet" href="../assets/doc.css" />
+  </head>
+  <body>
+    <!-- 표지 -->
+    <section class="cover">
+      <div class="kicker">NAN 2026 · NHN GAME × AI HACKATHON</div>
+      <h1>팀원 롤 기술서</h1>
+      <p class="sub">SIN DIVE — 3인 팀, 담당과 경계</p>
+      <div class="rule"></div>
+      <dl>
+        <dt>제출 항목</dt>
+        <dd>05. 팀원 롤 기술서</dd>
+        <dt>팀 구성</dt>
+        <dd>3인 (기획 · 싱글 · 멀티)</dd>
+        <dt>프로젝트 코드</dt>
+        <dd>NAN2026</dd>
+        <dt>작성일</dt>
+        <dd>2026-08-09</dd>
+      </dl>
+    </section>
+
+    <h1>1. 팀 구성 한눈에</h1>
+
+    <table>
+      <thead>
+        <tr><th style="width: 18%">담당자</th><th style="width: 26%">역할</th><th>담당 영역</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Peter</strong></td><td>기획 · 게임성</td><td>벤치마크, 수익화 구조, 전시관, 관전, 시즌</td></tr>
+        <tr><td><strong>정호</strong></td><td>싱글 게임</td><td>코어 루프, 스토리, 캐릭터 성장</td></tr>
+        <tr><td><strong>연욱</strong></td><td>멀티 / PvP · 배포</td><td>대전, 매칭, 네트워크, 인프라</td></tr>
+      </tbody>
+    </table>
+
+    <div class="org">
+      <div class="top">
+        <div class="box">
+          <span class="who">Peter</span>
+          <span class="what">기획 · 게임성<br />무엇을 만들 것인가</span>
+        </div>
+      </div>
+      <div class="stem"></div>
+      <div class="stem-label">스펙 · 결정 게이트</div>
+      <div class="row">
+        <div class="box">
+          <span class="who">정호</span>
+          <span class="what">싱글 게임<br />하강 · 성장</span>
+        </div>
+        <div class="box">
+          <span class="who">연욱</span>
+          <span class="what">멀티 / PvP<br />대전 · 배포</span>
+        </div>
+      </div>
+      <div class="stem"></div>
+      <div class="stem-label">공용 코어 · UI 컴포넌트 (전투 규칙 · 스킬바 · 전장)</div>
+    </div>
+
+    <h1>2. 담당자별 상세</h1>
+
+    <h2>2-1. Peter — 기획 · 게임성</h2>
+
+    <table>
+      <thead>
+        <tr><th style="width: 20%">항목</th><th>내용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>주 담당</td><td>게임성 설계, 수익화 구조(BM)</td></tr>
+        <tr><td>부 담당</td><td>전시관, 관전 모드, 시즌 운영 설계</td></tr>
+        <tr><td>산출물</td><td>기획서, 통합 마스터 스펙, 컨셉 아트</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>프로젝트 전체 스코프와 일정 확정 (7/27 킥오프 ~ 8/10 제출)</li>
+      <li>게임 장르 · 핵심 루프 정의 — "손가락 하나로 내려가는 로그라이트"</li>
+      <li>벤치마크 분석과 수익화 구조 설계</li>
+      <li>캐릭터 4종의 이름 · 속성 · 컨셉 정의</li>
+      <li><strong>결정 게이트 담당</strong> — 구현 중 갈림길이 나올 때 게임성 기준으로 판정</li>
+    </ul>
+
+    <h2>2-2. 정호 — 싱글 게임</h2>
+
+    <table>
+      <thead>
+        <tr><th style="width: 20%">항목</th><th>내용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>주 담당</td><td>싱글 모드(심연 하강) 코어 루프</td></tr>
+        <tr><td>부 담당</td><td>스토리, 캐릭터 성장 곡선</td></tr>
+        <tr><td>코드 영역</td><td><code>src/single/</code>, <code>src/core/deck/</code>, 재화 · 강화</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>스와이프 하강 → 전투 → 보상 → 강화 루프 구현</li>
+      <li>층 구조 설계 — 10층 단위 보스, 잡몹 종류 교체로 진행감 표현</li>
+      <li>재화(심연석) · 강화 배율 밸런싱</li>
+      <li>카드 수집 시스템 (35장, 보스 층 1장, 만재 +70%)</li>
+      <li>방치 보상 (최대 120층)</li>
+      <li>타락도 · 분기 시스템</li>
+    </ul>
+
+    <h2>2-3. 연욱 — 멀티 / PvP · 배포</h2>
+
+    <table>
+      <thead>
+        <tr><th style="width: 20%">항목</th><th>내용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>주 담당</td><td>2:2 실시간 대전, 매칭, 네트워크</td></tr>
+        <tr><td>부 담당</td><td>인프라 · 배포 파이프라인, AI 에셋 파이프라인</td></tr>
+        <tr><td>코드 영역</td><td><code>src/pvp/</code>, <code>src/shared/</code>, <code>infra/</code>, <code>tools/</code></td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>2:2 줄다리기 대전 구현 — 120초, 게이지 80% 승리</li>
+      <li>AWS AppSync 실시간 구독 기반 매칭 · 동기화</li>
+      <li>AI 팀원 전략 판단 (Amazon Bedrock / Claude Haiku 4.5)</li>
+      <li>배포 파이프라인 — ECS Fargate + CloudFront + Route53, 한 줄 배포</li>
+      <li>AI 에셋 생성 파이프라인 — SD3.5 Large 인물 · 배경 삽화, 리컬러 도구</li>
+      <li>검증 하네스 — 실크기 화면 캡처 도구</li>
+    </ul>
+
+    <h1>3. 공동 작업 영역</h1>
+
+    <p>
+      담당이 갈리지 않는 부분은 <strong>먼저 필요한 쪽이 만들고 규칙으로 경계를
+      지켰습니다.</strong>
+    </p>
+
+    <table>
+      <thead>
+        <tr><th style="width: 22%">영역</th><th style="width: 34%">내용</th><th>경계 유지 방법</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>전투 코어</td><td>데미지 · 쿨다운 · 게이지 규칙</td><td>싱글 · PvP 양쪽이 같은 코어를 씁니다</td></tr>
+        <tr><td>UI 컴포넌트</td><td>스킬바, 전장, 토스트, 카드함</td><td>모드별 차이는 인자로 주입합니다</td></tr>
+        <tr><td>아트 디렉션</td><td>도트 그래픽 규칙, 팔레트</td><td>명세 문서가 기준입니다</td></tr>
+        <tr><td>경계 검사</td><td>모드 간 의존 방향</td><td><code>check:boundaries</code>가 <strong>코드로 막습니다</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="title">마지막 줄이 중요합니다</span>
+      <p>
+        3인이 병렬로 작업하면 <strong>싱글 코드가 PvP를 직접 참조하는 사고</strong>가
+        반드시 생깁니다. 사람이 기억하는 규칙은 지켜지지 않으므로 검사 스크립트로
+        막았습니다.
+      </p>
+    </div>
+
+    <h1>4. 협업 방식 — AI-DLC 기반</h1>
+
+    <p>세부 내용은 <strong>04. AI 활용 기술 문서</strong>에 정리했습니다.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="head"><span class="en">INCEPTION</span><span class="ko">Peter 주도</span></div>
+        <ul>
+          <li>설계 문서 작성 · 승인</li>
+          <li>코드보다 문서를 먼저</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="head"><span class="en">CONSTRUCTION</span><span class="ko">정호 · 연욱</span></div>
+        <ul>
+          <li>각 담당 영역 구현</li>
+          <li>AI가 코드, 사람이 판정</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="head"><span class="en">OPERATIONS</span><span class="ko">연욱</span></div>
+        <ul>
+          <li>브랜치 → PR → 머지 → 배포</li>
+          <li>신고받은 날 배포</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="title">결정 게이트는 담당 영역의 사람이 쥡니다</span>
+      <p>
+        "AUTO를 끄면 데미지까지 멈추는가" 같은 질문은 코드로 유도할 수 없어서, 그 영역
+        담당자가 판정하고 <strong>근거를 코드 주석에 남겼습니다.</strong>
+      </p>
+    </div>
+
+    <h1>5. 기여 규모</h1>
+
+    <table>
+      <thead>
+        <tr><th style="width: 16%">담당자</th><th style="width: 40%">주 코드 영역</th><th>비고</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Peter</td><td><code>prototype/peter/</code></td><td>기획서, 마스터 스펙, 컨셉 아트</td></tr>
+        <tr><td>정호</td><td><code>src/single/</code>, <code>src/core/</code></td><td>싱글 루프, 성장, 카드</td></tr>
+        <tr><td>연욱</td><td><code>src/pvp/</code>, <code>src/shared/</code>, <code>infra/</code></td><td>대전, 배포, 에셋 파이프라인</td></tr>
+      </tbody>
+    </table>
+
+    <div class="stats">
+      <div class="stat"><span class="n">131</span><span class="l">커밋</span></div>
+      <div class="stat"><span class="n">147</span><span class="l">소스 파일</span></div>
+      <div class="stat"><span class="n">1,657</span><span class="l">테스트</span></div>
+      <div class="stat"><span class="n">16</span><span class="l">설계 문서</span></div>
+    </div>
+
+    <div class="foot">05-team-roles · SIN DIVE 팀 · NAN 2026 사전과제</div>
+  </body>
+</html>

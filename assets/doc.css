@@ -1,0 +1,806 @@
+/*
+ * NAN2026 제출 문서 공용 스타일 — A4 PDF 출력 전제.
+ *
+ * ## PDF를 고려한 결정들 (화면용 CSS와 갈리는 지점)
+ *
+ * - **단위는 mm다.** px로 잡으면 인쇄 배율에 따라 여백이 흔들린다. A4는 210×297mm.
+ * - **배경색은 `print-color-adjust: exact`가 없으면 인쇄에서 날아간다.** 표 헤더와
+ *   강조 박스가 색으로 정보를 나르므로 강제한다.
+ * - **`page-break-inside: avoid`를 표와 카드에 건다.** 표가 페이지 경계에서 쪼개지면
+ *   헤더 없는 행 무더기가 다음 장에 남는다 — 심사자가 무슨 표인지 알 수 없다.
+ * - **폰트는 시스템 폰트만 쓴다.** 웹폰트를 CDN에서 받으면 헤드리스 렌더 시점에
+ *   아직 안 와 있을 수 있고, 그러면 글자 폭이 달라져 레이아웃이 밀린다.
+ * - **hover·transition 없음.** 정적 출력물이라 의미가 없다.
+ *
+ * ## 색은 4개까지 (사용자 지시)
+ */
+
+:root {
+  /* 4색 팔레트 — 게임 톤(심연)에서 가져왔다 */
+  --ink: #1a1c2e; /* ① 먹색 — 본문·제목 */
+  --deep: #3d3a6b; /* ② 심연 보라 — 구조(표 헤더·강조) */
+  --gold: #c9a227; /* ③ 금색 — 강조·수치 */
+  --paper: #f7f6f2; /* ④ 종이색 — 배경·면 */
+
+  /* 위 4색에서 파생된 것만 쓴다 (새 색이 아니다) */
+  --ink-soft: #5b5d70;
+  --rule: #d8d6cf;
+  --deep-wash: #edecf5;
+  --gold-wash: #faf4de;
+}
+
+@page {
+  size: A4;
+  margin: 16mm 14mm 18mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic",
+    system-ui, sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.62;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* ── 표지 ─────────────────────────────────────────────────────── */
+
+.cover {
+  /* 표지는 한 페이지를 통째로 쓴다. vh가 아니라 mm다 — 인쇄 페이지 높이가 기준 */
+  min-height: 250mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  page-break-after: always;
+  background: var(--ink);
+  color: var(--paper);
+  margin: -16mm -14mm 0;
+  padding: 24mm 20mm;
+}
+
+.cover .kicker {
+  font-size: 9.5pt;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-bottom: 6mm;
+}
+
+.cover h1 {
+  font-size: 30pt;
+  line-height: 1.15;
+  margin: 0 0 4mm;
+  color: var(--paper);
+  border: 0;
+  padding: 0;
+}
+
+.cover .sub {
+  font-size: 13pt;
+  color: var(--paper);
+  opacity: 0.82;
+  margin: 0 0 14mm;
+  font-weight: 400;
+}
+
+.cover .rule {
+  width: 46mm;
+  height: 1.2mm;
+  background: var(--gold);
+  margin-bottom: 12mm;
+}
+
+.cover dl {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  gap: 2.4mm 6mm;
+  margin: 0;
+  font-size: 10pt;
+}
+
+.cover dt {
+  color: var(--gold);
+}
+.cover dd {
+  margin: 0;
+  opacity: 0.92;
+}
+
+/* ── 제목 ─────────────────────────────────────────────────────── */
+
+h1 {
+  font-size: 17pt;
+  color: var(--ink);
+  border-bottom: 0.7mm solid var(--deep);
+  padding-bottom: 2mm;
+  margin: 0 0 5mm;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 13pt;
+  color: var(--deep);
+  margin: 9mm 0 3.5mm;
+  padding-left: 3mm;
+  border-left: 1.2mm solid var(--gold);
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 11pt;
+  color: var(--ink);
+  margin: 6mm 0 2.5mm;
+  page-break-after: avoid;
+}
+
+p {
+  margin: 0 0 3mm;
+}
+
+strong {
+  color: var(--deep);
+}
+
+a {
+  color: var(--deep);
+  text-decoration: none;
+  border-bottom: 0.2mm solid var(--gold);
+}
+
+code {
+  font-family: "DejaVu Sans Mono", Consolas, monospace;
+  font-size: 8.8pt;
+  background: var(--deep-wash);
+  padding: 0.3mm 1.2mm;
+  border-radius: 0.8mm;
+  color: var(--deep);
+}
+
+/* ── 리드 문단 ─────────────────────────────────────────────────── */
+
+.lead {
+  background: var(--paper);
+  border-left: 1.4mm solid var(--deep);
+  padding: 4mm 5mm;
+  margin: 0 0 6mm;
+  page-break-inside: avoid;
+}
+
+.lead ol {
+  margin: 0;
+  padding-left: 5mm;
+}
+.lead li {
+  margin-bottom: 1.6mm;
+}
+.lead li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── 인용 ─────────────────────────────────────────────────────── */
+
+blockquote {
+  margin: 4mm 0;
+  padding: 3.5mm 5mm;
+  background: var(--gold-wash);
+  border-left: 1.4mm solid var(--gold);
+  font-size: 10.5pt;
+  page-break-inside: avoid;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 2mm;
+  font-size: 8.8pt;
+  font-style: normal;
+  color: var(--ink-soft);
+}
+
+/* ── 표 ───────────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3.5mm 0 5mm;
+  font-size: 9.4pt;
+  page-break-inside: avoid;
+}
+
+thead th {
+  background: var(--deep);
+  color: var(--paper);
+  text-align: left;
+  padding: 2.2mm 3mm;
+  font-weight: 600;
+  font-size: 9.2pt;
+}
+
+tbody td {
+  padding: 2mm 3mm;
+  border-bottom: 0.2mm solid var(--rule);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td {
+  background: var(--paper);
+}
+
+/* 첫 열이 항목명인 표가 많다 — 축을 눈에 보이게 */
+tbody td:first-child {
+  color: var(--deep);
+  font-weight: 500;
+}
+
+table.plain tbody td:first-child {
+  color: inherit;
+  font-weight: inherit;
+}
+
+/* ── 수치 카드 ─────────────────────────────────────────────────── */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  margin: 4mm 0 6mm;
+  page-break-inside: avoid;
+}
+
+.stats.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stat {
+  background: var(--paper);
+  border: 0.25mm solid var(--rule);
+  border-top: 1mm solid var(--gold);
+  padding: 3.5mm 3mm;
+  text-align: center;
+}
+
+.stat .n {
+  display: block;
+  font-size: 17pt;
+  font-weight: 700;
+  color: var(--deep);
+  line-height: 1.1;
+}
+
+.stat .l {
+  display: block;
+  font-size: 8.4pt;
+  color: var(--ink-soft);
+  margin-top: 1.2mm;
+}
+
+/* ── 다이어그램 ────────────────────────────────────────────────── */
+
+.diagram {
+  margin: 4mm 0 6mm;
+  page-break-inside: avoid;
+}
+
+/* 가로 단계 흐름 */
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 4mm 0 6mm;
+  page-break-inside: avoid;
+}
+
+.flow .step {
+  flex: 1;
+  background: var(--paper);
+  border: 0.25mm solid var(--rule);
+  border-top: 1mm solid var(--deep);
+  padding: 3mm 2.5mm;
+  text-align: center;
+}
+
+.flow .step .t {
+  display: block;
+  font-weight: 600;
+  color: var(--deep);
+  font-size: 9.6pt;
+  margin-bottom: 1mm;
+}
+
+.flow .step .d {
+  display: block;
+  font-size: 8.4pt;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.flow .arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5mm;
+  color: var(--gold);
+  font-size: 13pt;
+  font-weight: 700;
+}
+
+/* 3단계 phase 박스 (AI-DLC) */
+.phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3mm;
+  margin: 4mm 0 3mm;
+  page-break-inside: avoid;
+}
+
+.phase {
+  border: 0.25mm solid var(--rule);
+  background: #fff;
+  padding: 0 0 3mm;
+}
+
+.phase .head {
+  background: var(--deep);
+  color: var(--paper);
+  padding: 2.4mm 3mm;
+  text-align: center;
+}
+
+.phase .head .en {
+  display: block;
+  font-size: 9.6pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.phase .head .ko {
+  display: block;
+  font-size: 8.2pt;
+  color: var(--gold);
+  margin-top: 0.6mm;
+}
+
+.phase ul {
+  margin: 2.6mm 0 0;
+  padding-left: 6mm;
+  font-size: 8.6pt;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.phase li {
+  margin-bottom: 0.8mm;
+}
+
+.gate {
+  text-align: center;
+  font-size: 8.8pt;
+  color: var(--deep);
+  background: var(--gold-wash);
+  border: 0.25mm dashed var(--gold);
+  padding: 2mm;
+  margin-bottom: 6mm;
+  page-break-inside: avoid;
+}
+
+/* 순환 루프 (싱글 코어 루프).
+   `page-break-after: avoid`가 필요하다 — 캡션(`.loop-back`)이 "↺ 더 깊은 층으로"로
+   도형을 마무리하므로, 도형만 앞 장에 남고 캡션이 다음 장 첫 줄로 넘어가면 캡션이
+   무엇에 붙은 말인지 읽을 수 없다 */
+.loop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  margin: 4mm 0 2mm;
+  page-break-inside: avoid;
+  page-break-after: avoid;
+}
+
+.loop .node {
+  background: var(--deep-wash);
+  border: 0.25mm solid var(--deep);
+  border-radius: 1.5mm;
+  padding: 2.6mm 3mm;
+  text-align: center;
+  min-width: 26mm;
+}
+
+.loop .node .t {
+  display: block;
+  font-size: 9.4pt;
+  font-weight: 600;
+  color: var(--deep);
+}
+
+.loop .node .d {
+  display: block;
+  font-size: 8pt;
+  color: var(--ink-soft);
+  margin-top: 0.5mm;
+}
+
+.loop .arrow {
+  padding: 0 2mm;
+  color: var(--gold);
+  font-size: 12pt;
+  font-weight: 700;
+}
+
+.loop-back {
+  text-align: center;
+  font-size: 8.4pt;
+  color: var(--ink-soft);
+  margin-bottom: 6mm;
+}
+
+.loop-back::before {
+  content: "↺ ";
+  color: var(--gold);
+  font-size: 11pt;
+}
+
+/* 조직도 */
+.org {
+  margin: 4mm 0 6mm;
+  page-break-inside: avoid;
+}
+
+.org .top {
+  display: flex;
+  justify-content: center;
+}
+
+.org .box {
+  border: 0.25mm solid var(--rule);
+  border-top: 1mm solid var(--gold);
+  background: var(--paper);
+  padding: 3mm 4mm;
+  text-align: center;
+  min-width: 46mm;
+}
+
+.org .box .who {
+  display: block;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--deep);
+}
+
+.org .box .what {
+  display: block;
+  font-size: 8.8pt;
+  color: var(--ink-soft);
+  margin-top: 0.8mm;
+}
+
+.org .stem {
+  width: 0.4mm;
+  height: 6mm;
+  background: var(--deep);
+  margin: 0 auto;
+}
+
+.org .stem-label {
+  text-align: center;
+  font-size: 8pt;
+  color: var(--gold);
+  margin: 1mm 0;
+}
+
+.org .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+}
+
+.org .row .box {
+  border-top-color: var(--deep);
+  min-width: 0;
+}
+
+/* 타락도 계단 — 내려갈수록 진해지고 배율이 커진다.
+   막대 길이가 배율(×1.00~×2.00)에 비례한다. 색은 4색 안에서 불투명도로만 깊이를 낸다 */
+.ladder {
+  margin: 4mm 0 3mm;
+  page-break-inside: avoid;
+}
+
+.ladder .rung {
+  display: grid;
+  grid-template-columns: 22mm 18mm 1fr;
+  align-items: center;
+  gap: 3mm;
+  padding: 1.6mm 3mm;
+  border-left: 1.4mm solid var(--deep);
+  margin-bottom: 1mm;
+  background: var(--paper);
+}
+
+/* 아래로 갈수록 짙어진다 — 하강이 곧 타락이라는 것을 페이지에서 보이게 */
+.ladder .rung:nth-child(1) {
+  border-left-color: var(--rule);
+}
+.ladder .rung:nth-child(2) {
+  border-left-color: var(--gold);
+}
+.ladder .rung:nth-child(3) {
+  border-left-color: var(--deep);
+}
+.ladder .rung:nth-child(4) {
+  background: var(--deep-wash);
+}
+.ladder .rung:nth-child(5) {
+  background: var(--ink);
+  color: var(--paper);
+}
+.ladder .rung:nth-child(5) .stage,
+.ladder .rung:nth-child(5) .range {
+  color: var(--gold);
+}
+
+.ladder .stage {
+  font-weight: 700;
+  color: var(--deep);
+  font-size: 9.6pt;
+}
+
+.ladder .range {
+  font-size: 8.6pt;
+  color: var(--ink-soft);
+}
+
+.ladder .bar {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+}
+
+.ladder .bar i {
+  display: block;
+  height: 3mm;
+  background: var(--deep);
+  border-radius: 0.5mm;
+}
+
+.ladder .rung:nth-child(5) .bar i {
+  background: var(--gold);
+}
+
+.ladder .bar b {
+  font-size: 9pt;
+  color: var(--deep);
+  white-space: nowrap;
+}
+
+.ladder .rung:nth-child(5) .bar b {
+  color: var(--gold);
+}
+
+/* '심연의 선택' 모달 재현 — 게임 화면의 그 위젯을 종이에 옮긴다 */
+.modal {
+  max-width: 96mm;
+  margin: 4mm auto 5mm;
+  background: var(--ink);
+  color: var(--paper);
+  border: 0.3mm solid var(--gold);
+  padding: 4mm 5mm;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+.modal .t {
+  display: block;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 11pt;
+  margin-bottom: 2mm;
+}
+
+.modal .b {
+  display: block;
+  font-size: 8.8pt;
+  line-height: 1.55;
+  opacity: 0.9;
+  margin-bottom: 3.5mm;
+}
+
+.modal .btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+}
+
+.modal .btn {
+  border: 0.3mm solid var(--gold);
+  padding: 2mm;
+  font-size: 8.8pt;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.modal .btn.plain {
+  border-color: var(--ink-soft);
+  color: var(--paper);
+  opacity: 0.75;
+}
+
+/* 엔딩 분기 — 갈림선(70)을 두고 두 결말이 갈린다 */
+.endings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin: 4mm 0 5mm;
+  page-break-inside: avoid;
+}
+
+.ending {
+  border: 0.25mm solid var(--rule);
+  padding: 0 0 3.5mm;
+}
+
+.ending .head {
+  padding: 2.4mm 3mm;
+  text-align: center;
+  font-weight: 700;
+  font-size: 9.8pt;
+}
+
+.ending.a .head {
+  background: var(--paper);
+  color: var(--deep);
+  border-bottom: 0.8mm solid var(--gold);
+}
+
+.ending.b .head {
+  background: var(--ink);
+  color: var(--gold);
+}
+
+.ending .cond {
+  display: block;
+  text-align: center;
+  font-size: 8.4pt;
+  color: var(--ink-soft);
+  margin: 2mm 0 2.4mm;
+}
+
+.ending p {
+  font-size: 8.8pt;
+  line-height: 1.55;
+  margin: 0 4mm;
+  color: var(--ink);
+}
+
+/* ── 강조 박스 ─────────────────────────────────────────────────── */
+
+.callout {
+  background: var(--deep-wash);
+  border-left: 1.4mm solid var(--deep);
+  padding: 3.5mm 4.5mm;
+  margin: 4mm 0 5mm;
+  font-size: 9.6pt;
+  page-break-inside: avoid;
+}
+
+.callout .title {
+  display: block;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 1.6mm;
+  font-size: 10pt;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* 콜아웃에 `page-break-after: avoid`를 걸지 않는다. 뒤따르는 표에 붙이려고 걸어
+   봤더니 표가 들어갈 자리가 부족할 때 표를 **헤더 없이 쪼개서** 넘겼다 —
+   `page-break-inside: avoid`보다 이 규칙이 이겼다. 헤더 잃은 행 무더기가 다음 장에
+   남는 것이 앞 장 여백보다 나쁘다 */
+.callout.warn {
+  background: var(--gold-wash);
+  border-left-color: var(--gold);
+}
+
+.callout.warn .title {
+  color: #8a6f13;
+}
+
+/* ── 프롬프트 블록 ─────────────────────────────────────────────── */
+
+pre {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3.5mm 4mm;
+  margin: 3mm 0 5mm;
+  font-family: "DejaVu Sans Mono", Consolas, monospace;
+  font-size: 8.4pt;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+  border-radius: 1mm;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ── 페이지 제어 ───────────────────────────────────────────────── */
+
+.page-break {
+  page-break-before: always;
+}
+
+/* ── 링크 배너 ─────────────────────────────────────────────────── */
+
+.play {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 5mm 6mm;
+  margin: 4mm 0 6mm;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+.play .label {
+  display: block;
+  font-size: 8.6pt;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin-bottom: 2mm;
+}
+
+.play .url {
+  display: block;
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--paper);
+  border: 0;
+}
+
+.play .note {
+  display: block;
+  font-size: 8.6pt;
+  opacity: 0.8;
+  margin-top: 2mm;
+}
+
+/* ── 꼬리말 ───────────────────────────────────────────────────── */
+
+.foot {
+  margin-top: 10mm;
+  padding-top: 3mm;
+  border-top: 0.25mm solid var(--rule);
+  font-size: 8.2pt;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+ul,
+ol {
+  margin: 0 0 3.5mm;
+  padding-left: 6mm;
+}
+
+li {
+  margin-bottom: 1.2mm;
+}
