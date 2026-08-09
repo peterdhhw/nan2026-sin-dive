@@ -1,0 +1,14 @@
+# 비밀값 — 이 레포는 정리 후 public이 된다. 한 번 커밋되면 히스토리 재작성 없이
+# 회수할 수 없으므로 파일을 옮기기 **전에** 여기서 막는다.
+.env
+.env.*
+!.env.example
+
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# 영상 원본 — 제출 형식이 YouTube 링크다(02-gameplay-video/README.md)
+*.mp4
+*.mov
