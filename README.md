@@ -21,7 +21,8 @@
 
 | 항목 | 링크 |
 |------|------|
-| 플레이 (GitHub Pages) | *(배포 후 기재)* |
+| 플레이 (웹) | **https://abyss.agenticmind.cloud/** |
+| 플레이 (GitHub Pages) | *(Pages 활성화 후 기재)* |
 | 플레이 영상 (YouTube) | *(업로드 후 기재)* |
 
 ## 폴더 규칙

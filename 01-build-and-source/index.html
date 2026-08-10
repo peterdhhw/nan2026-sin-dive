@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SIN DIVE</title>
+<!-- 인라인 파비콘 — 없으면 브라우저가 /favicon.ico로 404를 낸다 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0812'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%236a4bb0' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+  /*
+   * 도트 폰트를 직접 싣는다 (Galmuri11, SIL OFL — public/assets/fonts/).
+   *
+   * 캐릭터가 저해상도 픽셀아트인데 UI가 안티에일리어싱된 벡터 고딕이면
+   * 두 그림이 다른 게임처럼 보인다. 한글 11,172자가 전부 들어 있어서
+   * (`가`~`힣`) 폰트 폴백으로 글자가 깨질 일이 없다.
+   *
+   * 가짜 볼드를 쓰지 않고 Bold 파일을 따로 싣는다 — 도트 폰트를 합성
+   * 볼드로 굵히면 픽셀이 반 칸씩 번져서 도트가 아니게 된다.
+   */
+  @font-face {
+    font-family: "Galmuri11";
+    src: url("./assets/fonts/Galmuri11.woff2") format("woff2");
+    font-weight: 400;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Galmuri11";
+    src: url("./assets/fonts/Galmuri11-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-display: block;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #141026 0%, #0a0812 45%, #050409 100%);
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #stage-wrap {
+    position: fixed; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* 9:16 세로 고정. 화면이 더 넓으면 높이 기준, 좁으면 폭 기준 */
+  #stage {
+    position: relative;
+    height: 100%; width: calc(100vh * 9 / 16);
+    max-width: 100vw; max-height: calc(100vw * 16 / 9);
+    box-shadow: 0 0 80px rgba(90, 60, 160, 0.25);
+  }
+  #stage canvas { display: block; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+  <div id="stage-wrap">
+    <div id="stage">
+      <noscript style="color:#e9dcff;font:16px system-ui;padding:24px;display:block">
+        이 게임은 JavaScript가 필요합니다.
+      </noscript>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "missile": {
+    "url": "assets/fx/missile.png",
+    "frameW": 64,
+    "frameH": 64,
+    "frames": 8,
+    "fps": 24
+  },
+  "impact": {
+    "url": "assets/fx/impact.png",
+    "frameW": 96,
+    "frameH": 96,
+    "frames": 6,
+    "fps": 20
+  },
+  "aura": {
+    "url": "assets/fx/aura.png",
+    "frameW": 80,
+    "frameH": 80,
+    "frames": 8,
+    "fps": 12
+  },
+  "slash": {
+    "url": "assets/fx/slash.png",
+    "frameW": 96,
+    "frameH": 96,
+    "frames": 5,
+    "fps": 22
+  },
+  "spark": {
+    "url": "assets/fx/spark.png",
+    "frameW": 64,
+    "frameH": 64,
+    "frames": 5,
+    "fps": 24
+  },
+  "dust": {
+    "url": "assets/fx/dust.png",
+    "frameW": 64,
+    "frameH": 64,
+    "frames": 6,
+    "fps": 16
+  }
+}

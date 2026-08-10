@@ -1,0 +1,51 @@
+{
+  "skills": {
+    "url": "assets/icons/skills.png",
+    "w": 512,
+    "h": 256,
+    "regions": {
+      "skill_attack": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "skill_blind": {
+        "x": 128,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "skill_buff": {
+        "x": 256,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "skill_burst": {
+        "x": 384,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "skill_combo": {
+        "x": 0,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "skill_interference": {
+        "x": 128,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "skill_ult": {
+        "x": 256,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      }
+    }
+  }
+}
