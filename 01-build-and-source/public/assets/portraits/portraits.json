@@ -1,0 +1,296 @@
+{
+ "crystal_mauler": {
+  "card": {
+   "alphaRatio": 0.1583,
+   "h": 93,
+   "medLum": 0.2066,
+   "ratio": 0.62,
+   "url": "assets/portraits/crystal_mauler_card.png",
+   "w": 113
+  },
+  "draw": {
+   "alphaRatio": 0.4851,
+   "h": 435,
+   "medLum": 0.2167,
+   "ratio": 0.34,
+   "url": "assets/portraits/crystal_mauler_draw.png",
+   "w": 544
+  },
+  "lose": {
+   "alphaRatio": 0.424,
+   "h": 435,
+   "medLum": 0.1913,
+   "ratio": 0.34,
+   "url": "assets/portraits/crystal_mauler_lose.png",
+   "w": 571
+  },
+  "select": {
+   "alphaRatio": 0.5868,
+   "h": 512,
+   "medLum": 0.1621,
+   "ratio": 0.4,
+   "url": "assets/portraits/crystal_mauler_select.png",
+   "w": 219
+  },
+  "win": {
+   "alphaRatio": 0.415,
+   "h": 435,
+   "medLum": 0.2094,
+   "ratio": 0.34,
+   "url": "assets/portraits/crystal_mauler_win.png",
+   "w": 621
+  }
+ },
+ "fire_knight": {
+  "card": {
+   "alphaRatio": 0.5179,
+   "h": 93,
+   "medLum": 0.1585,
+   "ratio": 0.62,
+   "url": "assets/portraits/fire_knight_card.png",
+   "w": 134
+  },
+  "draw": {
+   "alphaRatio": 0.4543,
+   "h": 435,
+   "medLum": 0.0979,
+   "ratio": 0.34,
+   "url": "assets/portraits/fire_knight_draw.png",
+   "w": 340
+  },
+  "lose": {
+   "alphaRatio": 0.4944,
+   "h": 435,
+   "medLum": 0.1096,
+   "ratio": 0.34,
+   "url": "assets/portraits/fire_knight_lose.png",
+   "w": 473
+  },
+  "select": {
+   "alphaRatio": 0.4432,
+   "h": 512,
+   "medLum": 0.1888,
+   "ratio": 0.4,
+   "url": "assets/portraits/fire_knight_select.png",
+   "w": 293
+  },
+  "win": {
+   "alphaRatio": 0.5263,
+   "h": 435,
+   "medLum": 0.1143,
+   "ratio": 0.34,
+   "url": "assets/portraits/fire_knight_win.png",
+   "w": 582
+  }
+ },
+ "ground_monk": {
+  "card": {
+   "alphaRatio": 0.275,
+   "h": 93,
+   "medLum": 0.1672,
+   "ratio": 0.62,
+   "url": "assets/portraits/ground_monk_card.png",
+   "w": 54
+  },
+  "draw": {
+   "alphaRatio": 0.4533,
+   "h": 435,
+   "medLum": 0.3762,
+   "ratio": 0.34,
+   "url": "assets/portraits/ground_monk_draw.png",
+   "w": 305
+  },
+  "lose": {
+   "alphaRatio": 0.5185,
+   "h": 435,
+   "medLum": 0.3027,
+   "ratio": 0.34,
+   "url": "assets/portraits/ground_monk_lose.png",
+   "w": 382
+  },
+  "select": {
+   "alphaRatio": 0.6237,
+   "h": 512,
+   "medLum": 0.2888,
+   "ratio": 0.4,
+   "url": "assets/portraits/ground_monk_select.png",
+   "w": 233
+  },
+  "win": {
+   "alphaRatio": 0.5248,
+   "h": 435,
+   "medLum": 0.3024,
+   "ratio": 0.34,
+   "url": "assets/portraits/ground_monk_win.png",
+   "w": 387
+  }
+ },
+ "leaf_ranger": {
+  "card": {
+   "alphaRatio": 0.2122,
+   "h": 93,
+   "medLum": 0.4455,
+   "ratio": 0.62,
+   "url": "assets/portraits/leaf_ranger_card.png",
+   "w": 134
+  },
+  "draw": {
+   "alphaRatio": 0.3752,
+   "h": 435,
+   "medLum": 0.7513,
+   "ratio": 0.34,
+   "url": "assets/portraits/leaf_ranger_draw.png",
+   "w": 370
+  },
+  "lose": {
+   "alphaRatio": 0.5394,
+   "h": 435,
+   "medLum": 0.7591,
+   "ratio": 0.34,
+   "url": "assets/portraits/leaf_ranger_lose.png",
+   "w": 563
+  },
+  "select": {
+   "alphaRatio": 0.4915,
+   "h": 512,
+   "medLum": 0.6677,
+   "ratio": 0.4,
+   "url": "assets/portraits/leaf_ranger_select.png",
+   "w": 224
+  },
+  "win": {
+   "alphaRatio": 0.4947,
+   "h": 435,
+   "medLum": 0.7981,
+   "ratio": 0.34,
+   "url": "assets/portraits/leaf_ranger_win.png",
+   "w": 560
+  }
+ },
+ "metal_bladekeeper": {
+  "card": {
+   "alphaRatio": 0.227,
+   "h": 93,
+   "medLum": 0.1905,
+   "ratio": 0.62,
+   "url": "assets/portraits/metal_bladekeeper_card.png",
+   "w": 75
+  },
+  "draw": {
+   "alphaRatio": 0.3005,
+   "h": 435,
+   "medLum": 0.2461,
+   "ratio": 0.34,
+   "url": "assets/portraits/metal_bladekeeper_draw.png",
+   "w": 329
+  },
+  "lose": {
+   "alphaRatio": 0.3606,
+   "h": 435,
+   "medLum": 0.1957,
+   "ratio": 0.34,
+   "url": "assets/portraits/metal_bladekeeper_lose.png",
+   "w": 351
+  },
+  "select": {
+   "alphaRatio": 0.5704,
+   "h": 512,
+   "medLum": 0.2262,
+   "ratio": 0.4,
+   "url": "assets/portraits/metal_bladekeeper_select.png",
+   "w": 149
+  },
+  "win": {
+   "alphaRatio": 0.3384,
+   "h": 435,
+   "medLum": 0.1395,
+   "ratio": 0.34,
+   "url": "assets/portraits/metal_bladekeeper_win.png",
+   "w": 316
+  }
+ },
+ "water_priestess": {
+  "card": {
+   "alphaRatio": 0.2378,
+   "h": 93,
+   "medLum": 0.6734,
+   "ratio": 0.62,
+   "url": "assets/portraits/water_priestess_card.png",
+   "w": 99
+  },
+  "draw": {
+   "alphaRatio": 0.4606,
+   "h": 435,
+   "medLum": 0.4221,
+   "ratio": 0.34,
+   "url": "assets/portraits/water_priestess_draw.png",
+   "w": 462
+  },
+  "lose": {
+   "alphaRatio": 0.4636,
+   "h": 435,
+   "medLum": 0.5755,
+   "ratio": 0.34,
+   "url": "assets/portraits/water_priestess_lose.png",
+   "w": 302
+  },
+  "select": {
+   "alphaRatio": 0.5378,
+   "h": 512,
+   "medLum": 0.4559,
+   "ratio": 0.4,
+   "url": "assets/portraits/water_priestess_select.png",
+   "w": 265
+  },
+  "win": {
+   "alphaRatio": 0.4315,
+   "h": 435,
+   "medLum": 0.3809,
+   "ratio": 0.34,
+   "url": "assets/portraits/water_priestess_win.png",
+   "w": 557
+  }
+ },
+ "wind_hashashin": {
+  "card": {
+   "alphaRatio": 0.2988,
+   "h": 93,
+   "medLum": 0.7755,
+   "ratio": 0.62,
+   "url": "assets/portraits/wind_hashashin_card.png",
+   "w": 65
+  },
+  "draw": {
+   "alphaRatio": 0.5656,
+   "h": 435,
+   "medLum": 0.3825,
+   "ratio": 0.34,
+   "url": "assets/portraits/wind_hashashin_draw.png",
+   "w": 482
+  },
+  "lose": {
+   "alphaRatio": 0.6032,
+   "h": 435,
+   "medLum": 0.3928,
+   "ratio": 0.34,
+   "url": "assets/portraits/wind_hashashin_lose.png",
+   "w": 701
+  },
+  "select": {
+   "alphaRatio": 0.7183,
+   "h": 512,
+   "medLum": 0.3285,
+   "ratio": 0.4,
+   "url": "assets/portraits/wind_hashashin_select.png",
+   "w": 286
+  },
+  "win": {
+   "alphaRatio": 0.6048,
+   "h": 435,
+   "medLum": 0.2689,
+   "ratio": 0.34,
+   "url": "assets/portraits/wind_hashashin_win.png",
+   "w": 701
+  }
+ }
+}

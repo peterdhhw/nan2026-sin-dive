@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.tsbuildinfo
+# AppSync API 키가 들어간다 — 절대 커밋하지 않는다 (.env.example만 커밋)
+.env.local
+# 계정 ID·CloudFront 배포 ID가 들어간다 (infra/deploy.env.example만 커밋)
+infra/deploy.env

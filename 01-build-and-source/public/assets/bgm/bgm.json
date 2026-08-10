@@ -1,0 +1,47 @@
+{
+  "note": "tools/fetch_bgm.sh가 생성한다. 직접 수정하지 말 것 — CREDITS.md의 음악 표를 여기서 뽑는다.",
+  "tracks": [
+    {
+      "slug": "dive_loop",
+      "title": "Oppressive Gloom",
+      "author": "Kevin MacLeod",
+      "license": "CC-BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourcePage": "https://incompetech.com/music/royalty-free/index.html?keywords=Oppressive+Gloom",
+      "trackUrl": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Oppressive%20Gloom.mp3",
+      "isrc": "USUAN1100885",
+      "attribution": "Oppressive Gloom Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 https://creativecommons.org/licenses/by/4.0/",
+      "downloadedAt": "2026-08-07",
+      "usedIn": "하강(싱글) 모드 배경음",
+      "modifications": "모노 44.1kHz로 변환, 앞에서 163.20초(40마디)만 남기고 뒤를 잘라냄(원본 끝이 페이드아웃이라 그대로는 루프가 안 된다), 루프 이음새를 프레이즈 한 개(8.16초, 2마디) 등파워 크로스페이드로 이어 붙임, 56k ogg/m4a로 인코딩",
+      "loopSeconds": 163.2,
+      "bars": 40,
+      "beatSeconds": 1.02,
+      "files": [
+        "dive_loop.ogg",
+        "dive_loop.m4a"
+      ]
+    },
+    {
+      "slug": "title_loop",
+      "title": "Crypto",
+      "author": "Kevin MacLeod",
+      "license": "CC-BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourcePage": "https://incompetech.com/music/royalty-free/index.html?keywords=Crypto",
+      "trackUrl": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crypto.mp3",
+      "isrc": "USUAN1600013",
+      "attribution": "Crypto Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 https://creativecommons.org/licenses/by/4.0/",
+      "downloadedAt": "2026-08-08",
+      "usedIn": "타이틀·선택 화면 배경음",
+      "modifications": "모노 44.1kHz로 변환, 앞에서 89.16초(30마디)만 남기고 뒤를 잘라냄(원본 끝이 페이드아웃이라 그대로는 루프가 안 된다), 루프 이음새를 프레이즈 한 개(5.94초, 2마디) 등파워 크로스페이드로 이어 붙임, 56k ogg/m4a로 인코딩",
+      "loopSeconds": 89.16,
+      "bars": 30,
+      "beatSeconds": 0.743,
+      "files": [
+        "title_loop.ogg",
+        "title_loop.m4a"
+      ]
+    }
+  ]
+}
